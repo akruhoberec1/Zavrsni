@@ -44,3 +44,5 @@ alter table opg add foreign key (proizvod) references proizvod(id);
 
 alter table proizvod add foreign key (djelatnost) references djelatnost(id);
 alter table student add foreign key (polje) references polje(id);
+
+#popraviti bazu
