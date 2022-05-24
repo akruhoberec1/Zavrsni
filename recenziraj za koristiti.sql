@@ -49,11 +49,11 @@ create table recenzija(
 recenzija_id int not null primary key auto_increment,
 proizvod int not null,
 USER int not null,
+komentar int not null,
 recenzija_text text(1000)
 );
 
 alter table proizvod add foreign key (kategorija) references kategorija(id);
-
 
 
 
@@ -75,12 +75,11 @@ alter table recenzija_tag add foreign key (tag_name) references tag(tag_name);
 #'komentari'
 create table recenzija_komentar(
 komentar_id int not null primary key auto_increment,
-recenzija_id int not null,
 user_id int not NULL,
 komentar text(200)
 );
 
-alter table recenzija_komentar add foreign key (recenzija_id) references recenzija(recenzija_id);
+alter table recenzija add foreign key (komentar) references recenzija_komentar(komentar_id);
 alter table recenzija_komentar add foreign key (user_id) references user(id);
-
+alter table recenzija add foreign key (proizvod) references proizvod(id);
 
