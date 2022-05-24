@@ -33,9 +33,6 @@ alter table korisnik add foreign key (user) references user(id);
 
 
 
-
-
-
 create table proizvod(
 id int not null primary key auto_increment,
 model varchar(120) not NULL,
@@ -82,5 +79,8 @@ recenzija_id int not null,
 user_id int not NULL,
 komentar text(200)
 );
+
+alter table recenzija_komentar add foreign key (recenzija_id) references recenzija(recenzija_id);
+alter table recenzija_komentar add foreign key (user_id) references user(id);
 
 
