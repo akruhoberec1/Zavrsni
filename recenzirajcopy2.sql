@@ -64,7 +64,7 @@ tag_name varchar(15) not null primary key
 
 create table recenzija_tag(
 recenzija_id int not NULL,
-tag_name int not null,
+tag_name varchar(15) not null,
 user_id int not NULL
 );
 
@@ -74,7 +74,7 @@ alter table recenzija_tag add foreign key (tag_name) references tag(tag_name);
 
 #'komentari'
 create table recenzija_komentar(
-komentar_id int not null primary key auto_increment;
+komentar_id int not null primary key auto_increment,
 recenzija_id int not null,
 user_id int not NULL,
 komentar text(200)
